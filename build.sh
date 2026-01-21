@@ -23,7 +23,35 @@ printf "#ifndef LIBWRAP_H\n#define LIBWRAP_H\n#include <rocblas/rocblas.h>\n#end
 cat <<EOF > rocblas.filter
 SCOREP_REGION_NAMES_BEGIN
   EXCLUDE *
-  INCLUDE rocblas_*
+
+  INCLUDE rocblas_*gemm*
+  INCLUDE rocblas_*trsm*
+  INCLUDE rocblas_*trmm*
+  INCLUDE rocblas_*symm*
+  INCLUDE rocblas_*syrk*
+  INCLUDE rocblas_*syr2k*
+  INCLUDE rocblas_*trtri*
+  INCLUDE rocblas_*geam*
+
+  INCLUDE rocblas_*gemv*
+  INCLUDE rocblas_*trsv*
+  INCLUDE rocblas_*ger*
+  INCLUDE rocblas_*syr*
+  INCLUDE rocblas_*trmv*
+
+  EXCLUDE rocblas_*create*
+  EXCLUDE rocblas_*destroy*
+  EXCLUDE rocblas_*set*
+  EXCLUDE rocblas_*get*
+  EXCLUDE rocblas_*query*
+  EXCLUDE rocblas_*log*
+  EXCLUDE rocblas_*status*
+  EXCLUDE rocblas_*version*
+  
+  EXCLUDE rocblas_*set_vector*
+  EXCLUDE rocblas_*get_vector*
+  EXCLUDE rocblas_*set_matrix*
+  EXCLUDE rocblas_*get_matrix*
 SCOREP_REGION_NAMES_END
 EOF
 
