@@ -1,0 +1,9 @@
+*.la
+*.lo
+*.cc
+scorep*
+.libs
+*.h
+*.i
+rocblas.*
+main*
